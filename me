@@ -1,0 +1,61 @@
+import java.util.Scanner;
+
+public class Phase11{
+    public static void main(String[] args){
+	Double[][] e = new Double[1000][1000];
+	Double[] n = new Double[10000];
+
+	Scanner sc = new Scanner(System.in);
+
+	int N = sc.nextInt();
+	int M = sc.nextInt();
+
+	Double[] score = new Double[N];
+
+	for(int i=0;i<N;i++){
+	    for(int j=0;j<M;j++){
+		e[i][j] = sc.nextDouble();
+	    }
+	}
+	
+	int k=0;
+	
+	for(int i=0;i<N-1;i++){   /* base human */
+	    for(int j=0;j<M-1;j++){ /* base book */
+		for(int t=0;t<N-i-1;t++){ 
+		    for(int l=0;l<M-t-1;l++){
+			if(){
+			    n[k++] = Math.sqrt((e[i][j] - e[t][j]) * (e[i][j] - e[t][j]) + (e[i][l] - e[t][l]) * (e[i][l] - e[t][l]));
+			}else{
+			    n[k++] = 10;
+			}
+		    }
+		}	
+	    }
+	}
+
+	for(int i=0;i<k;i++){
+	    if(n[i] > 10){
+		score[i] = 0.0;
+	    }else{
+		score[i] = 1/(n[i] + 1);
+	    }
+	}
+
+	for(int i=0;i<k-1;i++){
+	    for(int j=0;j<k-i-1;j++){
+		if(score[j]<score[j+1]){
+		    Double tmp = score[j];
+		    score[j] = score[j+1];
+		    score[j+1] = tmp;
+		}
+	    }
+	}
+
+	for(int i=0;i<N;i++){
+	    System.out.println(i + " " + score[i]);
+	}
+	
+    }
+}
+	
