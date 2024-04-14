@@ -24,7 +24,7 @@ public class Phase11{
 	    for(int j=0;j<M-1;j++){ /* base book */
 		for(int t=0;t<N-i-1;t++){ 
 		    for(int l=0;l<M-t-1;l++){
-			if(){
+			if(e[i][j]>=0 && e[t][j] >=0 && e[i][l] >=0 && e[t][ll] >=0){
 			    n[k++] = Math.sqrt((e[i][j] - e[t][j]) * (e[i][j] - e[t][j]) + (e[i][l] - e[t][l]) * (e[i][l] - e[t][l]));
 			}else{
 			    n[k++] = 10;
